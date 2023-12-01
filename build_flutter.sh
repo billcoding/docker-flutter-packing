@@ -1,0 +1,1 @@
+docker buildx build -t billcoding/flutter-packing -f Dockerfile.flutter --platform "linux/amd64" .

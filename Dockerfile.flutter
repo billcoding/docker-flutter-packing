@@ -1,0 +1,17 @@
+FROM debian:stable-20230612-slim
+
+LABEL Maintainer="billcoding <bill07wang@gmail.com>"
+LABEL Description="The Flutter Packing Dockerfile based on Debian 12"
+
+RUN apt update && apt install -y wget xz-utils git
+
+ENV FLUTTER_HOME=/opt/flutter \
+PATH=$PATH:/opt/flutter/bin
+
+RUN wget -O /tmp/flutter_linux_3.16.0-stable.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.16.0-stable.tar.xz && \
+tar xvf /tmp/flutter_linux_3.16.0-stable.tar.xz -C /tmp && \
+mv /tmp/flutter /opt && \
+rm -rf /tmp/flutter_linux_3.16.0-stable.tar.xz && \
+git config --global --add safe.directory /opt/flutter
+
+RUN flutter precache && flutter doctor -v
