@@ -5,8 +5,7 @@ Repository: https://github.com/billcoding/docker-flutter-packing
 
 Environment inside
 ---
-- Flutter SDK
+- Flutter SDK (3.16)
 - Android SDK
 - JDK 17 LTS (bellsoft)
 - MinIO Client
-- Apktool
