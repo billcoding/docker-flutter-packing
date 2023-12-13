@@ -3,7 +3,7 @@ FROM debian:stable-20230612-slim
 LABEL Maintainer="billcoding <bill07wang@gmail.com>"
 LABEL Description="The Docker Android Flutter Packing Dockerfile based on Debian 12"
 
-RUN apt update && apt install -y wget unzip xz-utils imagemagick git
+RUN apt update && apt install -y curl wget unzip xz-utils imagemagick git
 
 ENV FLUTTER_HOME=/opt/flutter \
 JAVA_HOME=/opt/jdk \
