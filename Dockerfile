@@ -3,9 +3,15 @@ FROM debian:stable-20230612-slim
 LABEL Maintainer="billcoding <bill07wang@gmail.com>"
 LABEL Description="The Docker Android Flutter Packing Dockerfile based on Debian 12"
 
-RUN apt update && apt install -y curl wget unzip xz-utils imagemagick git
+RUN apt update && apt install -y curl wget unzip xz-utils git locales 
 
-ENV FLUTTER_HOME=/opt/flutter \
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
+ENV LANG en_US.UTF-8 && \
+LC_ALL en_US.UTF-8 && \
+FLUTTER_HOME=/opt/flutter \
 JAVA_HOME=/opt/jdk \
 CMDLINETOOLS_HOME=/opt/android/sdk/cmdline-tools \
 ANDROID_HOME=/opt/android/sdk \
