@@ -9,8 +9,8 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8
 
-ENV LANG en_US.UTF-8 \
-LC_ALL en_US.UTF-8 \
+ENV LANG=en_US.UTF-8 \
+LC_ALL=en_US.UTF-8 \
 FLUTTER_HOME=/opt/flutter \
 JAVA_HOME=/opt/jdk \
 CMDLINETOOLS_HOME=/opt/android/sdk/cmdline-tools \
